@@ -1,0 +1,22 @@
+name: Build and push to EKS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      runTest:
+        description: 'Run Tests'
+        type: boolean
+        default: true
+
+jobs:
+  if: github.repository == 'octo-org/octo-repo-prod'
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, 'MERGE_ONLY')"
+    steps:
+      - name: Message
+        uses: echo "Deployed"
