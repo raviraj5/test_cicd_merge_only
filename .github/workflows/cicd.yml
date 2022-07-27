@@ -1,5 +1,5 @@
 # .github/workflows/logger.yaml
-name: Event Loggger
+name: Event Loggger 1
 on: push
 
 jobs:
