@@ -1,12 +1,16 @@
-# .github/workflows/logger.yaml
-name: Event Loggger 1
-on: push
+name: Build and push to EKS
+
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  log-github-event-goodies:
-    name: "LOG Everything on GitHub Event"
+  deploy:
+    if: "!contains(github.event.head_commit.message, 'MERGE-ONLY')"
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Logging
-        run: |
-          echo "${{toJSON(github.event.pull_request)}}"
+      - name: Message
+        run: | 
+          echo "Deployed"
