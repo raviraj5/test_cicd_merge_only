@@ -14,3 +14,4 @@ jobs:
       - name: Message
         run: | 
           echo "Deployed"
+          echo $(github.event)
