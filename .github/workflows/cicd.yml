@@ -9,4 +9,4 @@ jobs:
     steps:
       - name: Logging
         run: |
-          echo "${{toJSON(github.event.pull_request)}}"
+          echo "${{toJSON(github)}}"
